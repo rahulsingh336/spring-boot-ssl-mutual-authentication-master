@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: secure-server
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
+    
+server:
+  port: 8444
+  #ssl:
+   # key-store: classpath:server-keystore.jks
+   # key-store-password: secret
+   # key-alias: secure-server
+   # trust-store: classpath:server-truststore.jks
+   # trust-store-password: secret
+    #enabled: true
+    #client-auth: need
+
+ssl:
+    key:
+        password: secret
+    keystore:
+        alias: secure-server
+        location: security/server-keystore.jks
+        password: secret
+    truststore:
+        location: security/server-truststore.jks
+        password: secret
+    
+logging:
+  level:
+    org.springframework: DEBUG
